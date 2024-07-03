@@ -1,5 +1,15 @@
+resource "aws_instance" "example" {
+  ami           = "ami-01e444924a2233b07"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "DevOps-Intern-VM"
+  }
+}
+
 resource "aws_security_group" "example" {
-  vpc_id = aws_vpc.main.id
+  name        = "example-sg"
+  description = "Allow SSH inbound traffic"
 
   ingress {
     from_port   = 22
@@ -15,7 +25,5 @@ resource "aws_security_group" "example" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "example_security_group"
-  }
+  depends_on = [aws_instance.example]
 }
