@@ -25,5 +25,5 @@ resource "aws_security_group" "example3" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  depends_on = [aws_instance.example]
+  depends_on = [aws_instance.example2]
 }
