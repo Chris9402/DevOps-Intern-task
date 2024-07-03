@@ -25,4 +25,4 @@ resource "aws_subnet" "main" {
   tags = {
     Name = "example_security_group"
   }
-}
+  
