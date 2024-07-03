@@ -1,18 +1,9 @@
 resource "aws_security_group" "example" {
-  name        = "devops_intern_task_sg"
-  description = "Allow SSH and HTTP traffic"
-  vpc_id      = "vpc-08cc5cd388033fc06"
+  vpc_id = aws_vpc.main.id
 
   ingress {
     from_port   = 22
     to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -25,6 +16,6 @@ resource "aws_security_group" "example" {
   }
 
   tags = {
-    Name = "devops_intern_task_sg"
+    Name = "example_security_group"
   }
 }
