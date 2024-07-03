@@ -1,4 +1,4 @@
-resource "aws_instance" "example" {
+resource "aws_instance" "example2" {
   ami           = "ami-01e444924a2233b07"
   instance_type = "t2.micro"
 
@@ -7,7 +7,7 @@ resource "aws_instance" "example" {
   }
 }
 
-resource "aws_security_group" "example" {
+resource "aws_security_group" "example3" {
   name        = "example-sg"
   description = "Allow SSH inbound traffic"
 
